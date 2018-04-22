@@ -1,6 +1,6 @@
 
 export const COLORS = ['#8884d8', '#00C49F', '#FFBB28', '#FF8042', '#0088FE','#91bfdb','#2c8d59','#448ec3', '#F0C49F', '#0FBB28', '#0F8042', '#F088FE','#F1bfdb','#Fc8d59','#F48ec3'];
-export const server = 'http://192.9.200.10:4002/' //'http://192.9.200.17:4000/'
+export const server = 'http://192.9.200.17:4000/' //'http://192.9.200.10:4002/'
 export const getLegendData = function(data){
 	const groups = data.map(function(item){return item.GROUPS}).filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 	return groups.map(function(item,i){return {label: item, color: COLORS[i%COLORS.length]}});

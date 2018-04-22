@@ -43,7 +43,8 @@ class App extends Component {
     <Route path="/purchase" component={Container} script="purchase"/> 
     <Route path="/serial" component={Container} script="serial"/>    
     <Route path="/rma" component={Container} script="rma"/>
-    <Route path="/smt" component={Container} script="smt"/>                     
+    <Route path="/smt" component={Container} script="smt"/>   
+    <Route path="/sel" component={Container} script="sel"/>                   
   </Router>
     );
   }
