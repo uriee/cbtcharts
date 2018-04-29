@@ -2,6 +2,10 @@ import React from 'react'
 import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {COLORS} from './config.js';
 
+/**
+ * This pure presentation class plot a line chart on the screen
+ * 
+ */
 
 export default React.createClass({
 

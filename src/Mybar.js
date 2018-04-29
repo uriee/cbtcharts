@@ -2,7 +2,10 @@ import React from 'react'
 import {ResponsiveContainer, BarChart,  Bar, XAxis, YAxis, Legend} from 'recharts';
 import {COLORS} from './config.js';
 
-
+/**
+ * This pure presentation class plot a stacked bar on the screen
+ * 
+ */
 export default React.createClass({
   render() {
     return (

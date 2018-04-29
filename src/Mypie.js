@@ -4,7 +4,10 @@ import {COLORS} from './config.js';
 
 const RADIAN = Math.PI / 180;   
 
-
+/**
+ * @name renderActiveShape
+ * this function calculate the position of the pie chart labels.
+ */
 const renderActiveShape = (props) => {
   const { cx, cy, midAngle, innerRadius, outerRadius, 
     fill, payload, percent, index} = props;
@@ -20,7 +23,6 @@ const renderActiveShape = (props) => {
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);  
 
-
   return (
     <g>
       <text fontSize={u/8} x={ex} y={ey} dy={0} textAnchor={textAnchor} fill={fill}>&#x25A0; </text>
@@ -32,24 +34,11 @@ const renderActiveShape = (props) => {
   );
 };
 
- /*
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.45;
-  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
 
-  const u = Math.min(cx.cy);
-
-
-  return (
-    <g>
-    <text  fontSize={u/15} x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}  dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-    </g>
-  );
-};
-*/
+/**
+ * This pure presentation class plot a pie chart on the screen
+ * 
+ */
 export default React.createClass({
 
   render() {
@@ -79,17 +68,3 @@ export default React.createClass({
       )
   }
 });
-/*
-              <Pie
-                data={this.props.data} 
-                cx={this.props.width/2} 
-                cy={this.props.height/4} 
-                labelLine={false}
-                startAngle={0}          
-                label={renderCustomizedLabel}
-                paddingAngle={1}    
-                innerRadius={this.props.height/12}                
-                outerRadius={this.props.height/2} 
-                fill="#8884d8"
-              >
-*/

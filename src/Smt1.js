@@ -4,6 +4,9 @@ import './App.css';
 import Myline from './Myline.js';
 import {server, getlinedata} from './config.js';
 
+/**
+ * A class that plot the data that fetched from graph/smt1 as a line chart
+ */
 export default React.createClass({
 
   getInitialState: function getInitialState() {

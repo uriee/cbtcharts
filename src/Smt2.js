@@ -4,6 +4,9 @@ import './App.css';
 import Mybar from './Mybar.js';
 import {server,getbardata} from './config.js';
 
+/**
+ * A class that plot the data that fetched from graph/smt2 as a bar chart
+ */
 export default React.createClass({
 
   getInitialState: function getInitialState() {
