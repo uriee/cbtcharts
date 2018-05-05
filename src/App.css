@@ -1,9 +1,18 @@
+html, body
+{
+    height: 100%;
+}
+
 h3 {
     text-align: center;
 }
 
 h4 {
     text-align: center;
+}
+
+hr {
+  width:98%
 }
 .resp {
   width: 100%;
@@ -80,15 +89,22 @@ h4 {
     font-size: 125%;
 }
 
-img {
+.logo {
     width: 10%;
     height: 5%;
     position: absolute;
     left: 1%;    
     float: left;
     clear: left;
+   
+}
+.plane {
+    width: 20%;
+    height: 20%;
 
-     
+    left: 1%;    
+
+
 }
 
 h1,
@@ -113,3 +129,21 @@ h6,
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.semi-circle{
+  font-size: 100%;
+  position: 'relative';
+  margin:0%;
+  width: 100%;
+  height: 100%;
+}
+
+display: table-row;
+.fly-header{position: relative;  display: block;  }
+.fly-line{position: relative; width: 7%; float: left; text-align:center; margin-bottom: 0.7%; }
+.fly-incoming{position: relative;width: 31%; float: left; text-align:center;  margin-bottom: 0.7%;}
+.fly-run{position: relative;width: 31%; float: left; text-align: center; margin-bottom: 0.7%; }
+.fly-past{ width: 31%; float: left;  text-align: center; margin-bottom: 0.7%; }
+.fly-row{ height: 16%;   clear: both;  }
+
+
+

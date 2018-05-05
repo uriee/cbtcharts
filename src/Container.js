@@ -17,6 +17,7 @@ import Rmaout from './Rmaout';
 import Rmaday from './Rmagraph';
 import Rmaweek from './Rmagraph2';
 import PorderPie1 from './PorderPie1';
+import FlyTable from './FlyTable';
 import {server} from './config.js';
 
 
@@ -30,7 +31,7 @@ var empty = {NAME : Empty , INTERVAL : 1}
 
 var Logo = React.createClass({
     render: function() {
-        return <div className="img-responsive"><img src={require('../public/logo.jpg')}/> </div>
+        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')}/> </div>
     }
 });
 
@@ -41,7 +42,10 @@ var Reactive = React.createClass({
     }
 })
 
-var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2, 'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1, 'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2, 'Sel1':Sel1,'Sel2':Sel2, 'SmtPie1':SmtPie1}
+var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2,
+ 'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
+  'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2, 'Sel1':Sel1,'Sel2':Sel2, 'SmtPie1':SmtPie1,
+  'FlyTable':FlyTable}
 
 export default React.createClass({
 
@@ -62,22 +66,7 @@ export default React.createClass({
 	});
 	setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);      
   } ,
-/*
-  newplay(){
-	var next = (this.state.current === this.state.script.length-1 ? 0 : this.state.current+1)
-	var name = this.state.script[this.state.current].NAME
-	//console.log("inplay:",this.state.current,this.state.script)
-	const TH = this;
-	    this.serverRequest = axios.get("http://192.9.200.17:4000/graph/").then(function (result) { 
-	        TH.setState({
-	        	script: this.state.script,
-			    current: next,
-			    data: result.data
-	        });
-	    setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);    
-	    });	
-  } ,  
-*/
+
   loadScript(){
     var TH = this;
     this.serverRequest = axios.get(server + "script/" + TH.props.route.script).then(function (result) {

@@ -11,8 +11,8 @@ export default React.createClass({
               color: '#FFEA82',
               trailColor: '#eee',
               trailWidth: 1,
-              svgStyle: {width: '58%', height: '5%'},
-              text: {
+              svgStyle: {width: '100%', height: '100%'},
+             text: {
                 style: {
                   // Text color.
                   // Default: same as stroke color (options.color)
@@ -24,25 +24,28 @@ export default React.createClass({
                   margin: 10,
                   transform: null
                 },
-                autoStyleContainer: true
+
+                autoStyleContainer: false
               },
               from: {color: '#FFEA82'},
               to: {color: '#ED6A5A'},
               step: (state, bar) => {
                 bar.setText(Math.round(bar.value() * 100) + ' %');
+                bar.text.style.color = state.color;
               }
            };
 
 
         var containerStyle = {
-            width: '200px',
-            height: '200px'
+            position: 'relative',
+            width: '90%',
+            height: '90%',
+            margin : '5%'
         };
 
         return (
             <Line
-                progress={0.9}
-                text={'test'}
+                progress={this.props.progress}
                 options={options}
                 initialAnimate={true}
                 containerStyle={containerStyle}
