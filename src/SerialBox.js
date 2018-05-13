@@ -1,5 +1,4 @@
 import React from 'react'
-import {COLORS} from './config.js';
 import './App.css';
 import Progress from './ProgressSemiCircle'
 
@@ -13,10 +12,10 @@ export default React.createClass({
     console.log("BOX-",this.props)
     return (
       <div >
-		      <div className = 'left50'>
-			      <div><h3>{this.props.data.PARTNAME}</h3></div>
-            <div><h3>{this.props.data.SERIALNAME}</h3></div>
-            <div><h3>{this.props.data.ACTNAME}</h3></div>
+		      <div className='left50'>
+			      <div>{this.props.data.PARTNAME}</div>
+            <div>{this.props.data.SERIALNAME}</div>
+            <div>{this.props.data.ACTNAME}</div>
 		      </div>
           <div className='left50'>	 <Progress progress={this.props.data.PROGRESS/100}/> </div>
       </div>

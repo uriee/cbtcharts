@@ -11,6 +11,8 @@ import Smt1 from './Smt1';
 import Smt2 from './Smt2';
 import Sel1 from './Sel1';
 import Sel2 from './Sel2';
+import Aqt1 from './Aqt1';
+import Aqt2 from './Aqt2';
 import SmtPie1 from './SmtPie1';
 import Rmain from './Rmain';
 import Rmaout from './Rmaout';
@@ -18,12 +20,13 @@ import Rmaday from './Rmagraph';
 import Rmaweek from './Rmagraph2';
 import PorderPie1 from './PorderPie1';
 import FlyTable from './FlyTable';
+import Efficiancy from './Efficiancy';
 import {server} from './config.js';
 
 
 var Empty = React.createClass({
     render: function() {
-        return <div> no script yet </div>
+        return <div>  </div>
     }
 });
 
@@ -38,14 +41,14 @@ var Logo = React.createClass({
 var Reactive = React.createClass({
     render: function() {
 	if (!this.props.component) return <Empty/>
-    else return <this.props.component title={this.props.title}/>
+    else return <this.props.component title={this.props.title} param={this.props.param}/>
     }
 })
 
 var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2,
  'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
   'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2, 'Sel1':Sel1,'Sel2':Sel2, 'SmtPie1':SmtPie1,
-  'FlyTable':FlyTable}
+  'FlyTable':FlyTable, 'Aqt1':Aqt1,'Aqt2':Aqt2, Efficiancy:Efficiancy}
 
 export default React.createClass({
 
@@ -100,11 +103,11 @@ export default React.createClass({
   },
 
   render() {
-	
+	 console.log("this:",this.state.script[this.state.current],this.state.script)
     return (
     	<div className='height90' > 
         <Logo/> 
-				<Reactive component={slides[this.state.script[this.state.current].NAME]} title={this.state.script[this.state.current].TITLE} />  	
+				<Reactive component={slides[this.state.script[this.state.current].NAME]} title={this.state.script[this.state.current].TITLE} param={this.state.script[this.state.current].PARAM} />  	
         </div>
   
       )

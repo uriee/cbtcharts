@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, hashHistory } from 'react-router'
 import Container from './Container'
-import FlyTable from './FlyTable'
+import Eff from './Efficiancy.js'
 
 /**
  * This class is the root of the cockpitture app.
@@ -15,14 +15,16 @@ class App extends Component {
     return (
   <Router history={hashHistory}>
     <Route path="/" component={Container}/>
-    <Route path="/test" component={FlyTable}/>
+    <Route path="/g" component={Eff}/>
     <Route path="/purchase" component={Container} script="purchase"/> 
     <Route path="/serial" component={Container} script="serial"/>    
     <Route path="/rma" component={Container} script="rma"/>
     <Route path="/smt" component={Container} script="smt"/>   
-    <Route path="/sel" component={Container} script="sel"/>                   
+    <Route path="/sel" component={Container} script="sel"/>  
+    <Route path="/aqt" component={Container} script="aqt"/>     
+    <Route path="/test" component={Container} script="test"/>                   
   </Router>
-    );
+    )
   }
 }
 

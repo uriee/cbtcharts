@@ -7,6 +7,9 @@ h3 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
 h4 {
     text-align: center;
 }
@@ -121,7 +124,7 @@ h6,
 .h6 {
   font-family: inherit;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.0;
   color: inherit;
 }
 
@@ -139,11 +142,12 @@ h6,
 
 display: table-row;
 .fly-header{position: relative;  display: block;  }
-.fly-line{position: relative; width: 7%; float: left; text-align:center; margin-bottom: 0.7%; }
-.fly-incoming{position: relative;width: 31%; float: left; text-align:center;  margin-bottom: 0.7%;}
-.fly-run{position: relative;width: 31%; float: left; text-align: center; margin-bottom: 0.7%; }
-.fly-past{ width: 31%; float: left;  text-align: center; margin-bottom: 0.7%; }
-.fly-row{ height: 16%;   clear: both;  }
+.fly-line{position: relative; width: 7%; float: left; text-align:center;  }
+.fly-incoming{position: relative;width: 31%; float: left;   margin-bottom: 0.1%;}
+.fly-run{position: relative;width: 31%; float: left;   }
+.fly-past{ width: 31%; float: left;    }
+.fly-row{ height: 16%;   clear: both; margin-bottom: 1%; margin-top: 1%; }
+.gauge {position: relative; width: 30%; float: left;  margin-bottom: 2%; }
 
 
 

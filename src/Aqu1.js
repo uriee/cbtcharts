@@ -1,13 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import './App.css';
-import Mybar from './Mybar.js';
-import {server,getbardata} from './config.js';
+import Myline from './Myline.js';
+import {server, getlinedata} from './config.js';
 
 /**
- * A class that plot the data that fetched from graph/smt2 as a bar chart
+ * A class that plot the data that fetched from graph/aqu1 as a line chart
  */
-
 export default React.createClass({
 
   getInitialState: function getInitialState() {
@@ -20,26 +19,27 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get(server + "graph/prod2/S").then(function (result) { 
+    console.log("AQU:",this.props)
+    this.serverRequest = axios.get(server + "graph/prod1/A").then(function (result) { 
         const rawdata = result.data;
-        const {bardata,groups} = getbardata(rawdata);        
+        const {linedata,groups} = getlinedata(rawdata);        
         TH.setState({
-          bardata: bardata,
+          linedata: linedata,
           groups: groups.filter(i => i.name > '')
         });
     });
   },
 
-/*
+
   componentWillUnmount: function componentWillUnmount() {
     this.serverRequest.reject;
   },
-*/
+
   render() {
     console.log(this.state)
     return (
         <div className='height90'>      
-          <Mybar data={this.state.bardata} title={this.props.title} config={{ X: "X",
+          <Myline data={this.state.linedata} title={this.props.title} config={{ X: "X",
               datakeys:this.state.groups }} />            
         </div>
  

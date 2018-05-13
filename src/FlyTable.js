@@ -27,7 +27,8 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get(server + "graph/fly/smt" ).then(function (result) { 
+    console.log("props:",this.props)
+    this.serverRequest = axios.get(server + "graph/fly/"+this.props.param).then(function (result) { 
       var data  = result.data
       var lines = data.map(x => x.LINE).filter((item, i, ar) =>  ar.indexOf(item) === i )
         TH.setState({

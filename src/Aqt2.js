@@ -5,7 +5,7 @@ import Mybar from './Mybar.js';
 import {server,getbardata} from './config.js';
 
 /**
- * A class that plot the data that fetched from graph/smt2 as a bar chart
+ * A class that plot the data that fetched from graph/aqu2 as a bar chart
  */
 
 export default React.createClass({
@@ -20,7 +20,7 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get(server + "graph/prod2/S").then(function (result) { 
+    this.serverRequest = axios.get(server + "graph/prod2/A").then(function (result) { 
         const rawdata = result.data;
         const {bardata,groups} = getbardata(rawdata);        
         TH.setState({

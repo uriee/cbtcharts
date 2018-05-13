@@ -1,6 +1,6 @@
 import React from 'react';
 var ProgressBar = require('react-progressbar.js')
-var SemiCircle = ProgressBar.Circle;
+var SemiCircle = ProgressBar.Line;
 
 export default React.createClass({
   render() {
@@ -15,10 +15,10 @@ export default React.createClass({
           text: {
             value: '',
             alignToBottom: true,
-           // style: {
-              // or fontSize: '28px'
-             // 'font-size': '5%'      
-           // }
+            style: {
+             'font-size': '150%' ,     
+              'margin-top' : '1%'
+            }
           },  
           from: {color: '#ED6A5A'},/*'#FFEA82'*/
           to: {color: '#6AAD5A'},
@@ -39,7 +39,7 @@ export default React.createClass({
 
 
         var containerStyle = {
-           width: '40%',
+           width: '60%',
        };
         console.log("gg",this.props)
         return (

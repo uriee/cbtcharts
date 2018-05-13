@@ -19,7 +19,7 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get(server + "graph/sel1").then(function (result) { 
+    this.serverRequest = axios.get(server + "graph/prod1/S").then(function (result) { 
         const rawdata = result.data;
         const {linedata,groups} = getlinedata(rawdata);        
         TH.setState({

@@ -5,7 +5,7 @@ export const COLORS = ['#8884d8', '#00C49F', '#FFBB28', '#FF8042', '#0088FE','#9
 /**
  * This constant is the path to the API server.
  */
-export const server = 'http://192.9.200.17:4000/' //'http://192.9.200.10:4002/'
+export const server =  'http://192.9.200.10:4002/' //'http://192.9.200.17:4000/'
 /**
  * This function extract the Legend data from the total graph data
  * @name  getLegendData
