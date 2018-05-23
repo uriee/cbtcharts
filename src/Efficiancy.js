@@ -14,7 +14,7 @@ export default React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-     data: [],
+     data: [['Label', 'Value']],
      lines: []
     };
   },
@@ -22,12 +22,16 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    console.log("props:",this.props)
+    const init = [["Label","Value"]]
     this.serverRequest = axios.get(server + "graph/eff/"+this.props.param).then(function (result) { 
-      var data  = result.data
+      var data  = init.concat(result.data.map(x=>[x.LINE, Math.round((x.WTIME / x.TTIME)*100)]))
+      var data0  = init.concat(result.data.map(x=>[x.LINE, 0]))
+      TH.setState({
+          data: data0,
+        });
       TH.setState({
           data: data,
-        });
+        })
     });
   },
 
@@ -36,18 +40,12 @@ export default React.createClass({
     this.serverRequest.reject;
   },
 
-  render() {
 
+  render() {
     return (
     <div className='resp'>
           <h2 >{this.props.title}</h2>
-          {this.state.data.map(line => {
-            return <div key = {line.LINE} > 
-
-                    <div className='gauge'>  <Gauge value={(line.WTIME / line.TTIME)*100} title={line.LINE}/></div> 
-                   </div>   
-          }) 
-        }
+          <div className='center'>  <Gauge data={this.state.data}/></div> 
      </div>
    )
   }

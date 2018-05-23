@@ -1,18 +1,45 @@
 import React from 'react';
 
-var Gauge = require('react-canvas-gauges')
-var RadialGauge = Gauge.RadialGauge
+//var Gauge = require('react-canvas-gauges')
+import { Chart } from 'react-google-charts';
 
 
 
 
 export default React.createClass({
+
   render() {
+
+  var w = window.innerWidth/1.2;
+  var h = window.innerHeight/3;
+
+var data = this.props.data    
+var options = {
+                    yellowFrom: 50, yellowTo: 80,
+                    redFrom: 0, redTo: 50,
+                    greenFrom: 80, greenTo: 120,
+                    minorTicks: 5,
+                    max:200,
+                    height: h,
+                    width: w,
+                    majorTicks: ['0','100','200'],
+                    animation:{
+                        duration: 3000,
+                        easing: 'inAndOut',
+                      }                    
+                }
+
         return (
 
-          <RadialGauge
+               <Chart  chartType={"Gauge"}  data={data}  options={options}/>
+
+       );
+  }
+})
+
+/*          
            title={this.props.title}
-           height='400%'
+           height='300%'
            value={this.props.value}
            minValue={0}
            highlights={ [
@@ -25,9 +52,4 @@ export default React.createClass({
            minorTicks={2}
            colorNumbers='#BBB'
         ></RadialGauge>
-
-       );
-  }
-})
-
-
+*/

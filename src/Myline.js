@@ -19,12 +19,12 @@ export default React.createClass({
       <div className='resp'>   
       <ResponsiveContainer     >
         <LineChart  data={this.props.data} margin={{top: 30, right: 30, left: 10, bottom: 5}}>
-          <XAxis dataKey={this.props.config.X}  tickSize={12} />
+          <XAxis dataKey={this.props.config.X}  tickSize={5} />
           <YAxis/>
            <CartesianGrid strokeDasharray="3 6"/>
           <Legend iconSize={30} />
           {this.props.config.datakeys.map(function(dk,index) {
-            return <Line key={index} dataKey={dk.name}  fill={COLORS[index]} stroke={COLORS[index]} strokeWidth={5} dot={{  strokeWidth:7 }} />
+            return <Line key={index} dataKey={dk.name}  fill={COLORS[index]} stroke={COLORS[index]} strokeWidth={4} dot={{  strokeWidth:2 }} />
             })
           }
         </LineChart> 
