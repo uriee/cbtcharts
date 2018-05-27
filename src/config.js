@@ -51,7 +51,7 @@ export const getlinedata  = function(data) {
                       )}
                     ) ;
     const y = data.map(function(item){return item.GROUPS}).filter(function(item, i, ar){ return ar.indexOf(item) === i; }) ;       
-    const groups = y.map(function(item,i){ return {name: item}});
+    const groups = y.map(function(item,i){ return {name: item}}).reverse();
     return {linedata:table, groups:groups}
 };
 
