@@ -27,9 +27,9 @@ export default React.createClass({
     console.log("debug:",this.props)
     return (
         <div className='height90'>      
-          <div className='left51'><Prod1  title='AQT Average Performance in 24hr' type='A'/></div>
-           <div className='left51'><Prod2 title={'AQT Output in 24hr'} type='A'/></div>
-          <div className='gau'><Efficiancy  title='' param='aqt'/></div>
+          <div className='left51'><Prod1  title='WAVE Average Performance in 24hr' type='W'/></div>
+           <div className='left51'><Prod2 title={'WAVE Output in 24hr'} type='W' /></div>
+          <div className='gau'><Efficiancy  title='' param='wav'/></div>
         </div>
        )
   }

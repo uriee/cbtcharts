@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, hashHistory } from 'react-router'
 import Container from './Container'
 import Eff from './Efficiancy.js'
-import SelCharts from './SelCharts.js'
+import PurMain from './PurMain1.js'
 
 /**
  * This class is the root of the cockpitture app.
@@ -16,13 +16,14 @@ class App extends Component {
     return (
   <Router history={hashHistory}>
     <Route path="/" component={Container}/>
-    <Route path="/g" component={SelCharts} param='sel'/>
+    <Route path="/g" component={PurMain} />
     <Route path="/purchase" component={Container} script="purchase"/> 
     <Route path="/serial" component={Container} script="serial"/>    
     <Route path="/rma" component={Container} script="rma"/>
     <Route path="/smt" component={Container} script="smt"/>   
     <Route path="/sel" component={Container} script="sel"/>  
-    <Route path="/aqt" component={Container} script="aqt"/>     
+    <Route path="/aqt" component={Container} script="aqt"/> 
+    <Route path="/wave" component={Container} script="wave"/>         
     <Route path="/test" component={Container} script="test"/>                   
   </Router>
     )

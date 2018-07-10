@@ -9,10 +9,6 @@ import Serial1 from './Serials1';
 import Serial2 from './Serials2';
 import Smt1 from './Smt1';
 import Smt2 from './Smt2';
-import Sel1 from './Sel1';
-import Sel2 from './Sel2';
-import Aqt1 from './Aqt1';
-import Aqt2 from './Aqt2';
 import SmtPie1 from './SmtPie1';
 import Rmain from './Rmain';
 import Rmaout from './Rmaout';
@@ -23,9 +19,10 @@ import FlyTable from './FlyTable';
 import Efficiancy from './Efficiancy';
 import SmtCharts from './SmtCharts';
 import SelCharts from './SelCharts';
+import WavCharts from './WavCharts';
 import AqtCharts from './AqtCharts';
+import PurMain from './PurMain1.js'
 import {server} from './config.js';
-
 
 var Empty = React.createClass({
     render: function() {
@@ -50,8 +47,8 @@ var Reactive = React.createClass({
 
 var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2,
  'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
-  'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2, 'Sel1':Sel1,'Sel2':Sel2, 'SmtPie1':SmtPie1,
-  'FlyTable':FlyTable, 'Aqt1':Aqt1,'Aqt2':Aqt2, Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, AqtCharts:AqtCharts}
+  'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2,  'SmtPie1':SmtPie1,'PurMain':PurMain,
+  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts}
 
 export default React.createClass({
 

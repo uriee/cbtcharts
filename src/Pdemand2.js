@@ -24,6 +24,7 @@ export default React.createClass({
           groups: groups
         });
     });
+    setTimeout(this.componentDidMount.bind(this), 60000);
   },
 
 

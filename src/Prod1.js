@@ -1,9 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import './App.css';
-import Mybar from './Mybar.js';
-import {getbardata} from './config.js';
+import Myline from './Myline.js';
+import {server, getlinedata} from './config.js';
 
+/**
+ * A class that plot the data that fetched from graph/sel1 as a line chart
+ */
 export default React.createClass({
 
   getInitialState: function getInitialState() {
@@ -16,15 +19,14 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get("http://192.9.200.17:4000/graph/pdemand1").then(function (result) { 
+    this.serverRequest = axios.get(server + "graph/prod1/" + this.props.type).then(function (result) { 
         const rawdata = result.data;
-        const {bardata,groups} = getbardata(rawdata);
+        const {linedata,groups} = getlinedata(rawdata);        
         TH.setState({
-          bardata: bardata,
-          groups: groups
+          linedata: linedata,
+          groups: groups.filter(i => i.name > '')
         });
     });
-    setTimeout(this.componentDidMount.bind(this), 60000);
   },
 
 
@@ -33,10 +35,10 @@ export default React.createClass({
   },
 
   render() {
-
+    console.log(this.state)
     return (
         <div className='height90'>      
-          <Mybar data={this.state.bardata} title={this.props.title} config={{ X: "X",
+          <Myline data={this.state.linedata} title={this.props.title} config={{ X: "X",
               datakeys:this.state.groups }} />            
         </div>
  
