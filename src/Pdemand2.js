@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import './App.css';
 import Mybar from './Mybar.js';
-import {getbardata} from './config.js';
+import {server, getbardata} from './config.js';
 
 export default React.createClass({
 
@@ -16,7 +16,7 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    this.serverRequest = axios.get("http://192.9.200.17:4000/graph/pdemand2").then(function (result) { 
+    this.serverRequest = axios.get(server + "graph/pdemand2").then(function (result) { 
         const rawdata = result.data;
         const {bardata,groups} = getbardata(rawdata);
         TH.setState({

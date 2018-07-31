@@ -5,7 +5,7 @@ export const COLORS = ['#8884d8', '#00C49F', '#FFBB28', '#FF8042', '#0088FE','#9
 /**
  * This constant is the path to the API server.
  */
-export const server =  'http://192.9.200.17:4000/' //'http://192.9.200.10:4002/'
+export const server =  'http://192.9.200.10:4002/' // 'http://192.9.200.17:4000/'
 /**
  * This function extract the Legend data from the total graph data
  * @name  getLegendData
@@ -16,6 +16,12 @@ export const getLegendData = function(data){
 	const groups = data.map(function(item){return item.GROUPS}).filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 	return groups.map(function(item,i){return {label: item, color: COLORS[i%COLORS.length]}});
 };
+/*
+export const getLegendData = (data) =>  data
+    .map((item) => item.GROUPS)
+    .filter((item, i, ar) => ar.indexOf(item) === i)
+    .map((item,i) => {label: item, color: COLORS[i%COLORS.length]});
+*/
 
 /**
  * This function extract data from the total graph data and shape it in the form that can be used in a stacked bar graphs {name, stack}
