@@ -7,7 +7,7 @@ import SerialBox from './SerialBox.js';
 
 var Logo = React.createClass({
     render: function() {
-        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')}/> </div>
+        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')}  role="presentation"/> </div>
     }
 });
 
@@ -39,10 +39,6 @@ export default React.createClass({
   },
 
 
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
-
   render() {
 
     return (
@@ -50,9 +46,9 @@ export default React.createClass({
     <Logo/>
         <div className='fly-header'> 
           <div className='fly-line'>  &nbsp; </div> 
-          <div className='fly-incoming'><div className="img-responsive"><img  className="plane" src={require('../public/lift1.png')}/> </div></div> 
-          <div className='fly-run'><div className="img-responsive"><img  className="plane" src={require('../public/fly1.png')}/> </div></div> 
-          <div className='fly-past'><div className="img-responsive"><img  className="plane" src={require('../public/land1.png')}/> </div></div>   
+          <div className='fly-incoming'><div className="img-responsive"><img  className="plane" src={require('../public/lift1.png')}  role="presentation"/> </div></div> 
+          <div className='fly-run'><div className="img-responsive"><img  className="plane" src={require('../public/fly1.png')}  role="presentation"/> </div></div> 
+          <div className='fly-past'><div className="img-responsive"><img  className="plane" src={require('../public/land1.png')}  role="presentation"/> </div></div>   
           <hr/>   
         </div>       
         {this.state.lines.map(row => {
@@ -63,7 +59,7 @@ export default React.createClass({
           past = data.filter(x => (x.LINE===row && x.STATUS==="3"))[0]
           console.log("123:  ",incoming,run,past)
 
-        return <div className='fly-row' key = {row}> 
+        return <div className='fly-row' key={row}> 
           <div className='fly-line'><h1>{row}</h1></div> 
           <div className='fly-incoming'> <span></span></div> 
           <div className='fly-run'><SerialBox data={run}/></div>

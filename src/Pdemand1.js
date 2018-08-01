@@ -29,10 +29,7 @@ export default React.createClass({
   },
 
 
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
-
+ 
   render() {
 
     return (

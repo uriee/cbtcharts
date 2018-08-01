@@ -4,7 +4,6 @@ import {COLORS} from './config.js';
 
 const BarLabel = (props) => {
     const {
-        payload,
         textAnchor,
         fill,
         x,

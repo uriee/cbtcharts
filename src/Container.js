@@ -34,7 +34,7 @@ var empty = {NAME : Empty , INTERVAL : 1}
 
 var Logo = React.createClass({
     render: function() {
-        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')}/> </div>
+        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')} role="presentation" /> </div>
     }
 });
 

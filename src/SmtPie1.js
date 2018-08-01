@@ -17,17 +17,13 @@ export default React.createClass({
     const TH = this;
     this.serverRequest = axios.get(server + "graph/smt1").then(function (result) { 
         const rawdata = result.data;
-        const {piex,piegroups} = getpiedata(rawdata);
+        const {piegroups} = getpiedata(rawdata);
         TH.setState({
           piedata: piegroups,
         });
     });
   },
 
-
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
 
   render() {
     return (

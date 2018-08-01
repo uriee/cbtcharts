@@ -69,10 +69,6 @@ export default React.createClass({
   },
 
 
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
-
   render() {
     const init = [["Label","Value"]]
     const gdata = init.concat(this.state.data.map(x=>[x.NAME,x.PERCENT]))

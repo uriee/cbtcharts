@@ -29,10 +29,6 @@ export default React.createClass({
   },
 
 
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
-
   render() {
     /*var tf = (this.props.route.timeframe === 1440 ? ' Days' : ' Weeks');*/
     return (

@@ -16,12 +16,7 @@ export const getLegendData = function(data){
 	const groups = data.map(function(item){return item.GROUPS}).filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 	return groups.map(function(item,i){return {label: item, color: COLORS[i%COLORS.length]}});
 };
-/*
-export const getLegendData = (data) =>  data
-    .map((item) => item.GROUPS)
-    .filter((item, i, ar) => ar.indexOf(item) === i)
-    .map((item,i) => {label: item, color: COLORS[i%COLORS.length]});
-*/
+
 
 /**
  * This function extract data from the total graph data and shape it in the form that can be used in a stacked bar graphs {name, stack}
@@ -67,13 +62,7 @@ export const getlinedata  = function(data) {
  * @param {json} data:  the data total graph data. 
  * @returns {array} the series data 
  */
-export const getcolumnes  = function(data) {
-	var ret = []
-	for (var x in data[0]) {
-		ret.push({header:x, accessor: x,headerStyle:'font-size:30;'})
-	}
-	return ret;        
-};
+export const getcolumnes = data => data[0].map( x => {return {header:x, accessor: x,headerStyle:'font-size:30;'}})
 
 /**
  * This function extract data from the total graph data and shape it in the form that can be used in a pie chart
@@ -84,21 +73,6 @@ export const getcolumnes  = function(data) {
 export const getpiedata = function(data){
     const x = data.map(item => item.X).filter((item, i, ar) => ar.indexOf(item) === i)  
     const groups = data.map(item => item.GROUPS).filter((item, i, ar) => ar.indexOf(item) === i) ;   
-    /*      
-    const piex = x
-                  .map(function(q1,i){return Object.assign({name:q1},data
-                      .filter(function(q2){return q2.X===q1})
-                      .reduce(function(w,q){return {value: w['value'] + q.Y}},{value:0})
-                      )}
-                    ) ;
-    const piegroupsold = groups
-                  .map(function(q1,i){return Object.assign({name:q1},data
-                      .filter(function(q2){return q2.GROUPS===q1})
-                      .reduce(function(w,q){return {value: parseInt(w['value']) + q.Y}},{value:0})
-                      )}
-                    ) ;  
-    */
-  
     const piegroups = groups
                   .map(g => Object.assign({'name': g},
                     {value: data.filter(d => d.GROUPS === g)
