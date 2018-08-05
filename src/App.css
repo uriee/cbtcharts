@@ -18,6 +18,18 @@ hr {
   width:98%
 }
 
+
+.marquee {
+  background-color: lighten(#0074d9, 20);
+  opacity: .85;
+  padding: 20px;
+  color: rgba(255,255,255,.9);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .resp {
   width: 100%;
   height: 100%;
@@ -27,6 +39,12 @@ hr {
 .height90 {
   width: 100%;
   height: 95%;
+  position: relative;  
+}
+
+.height100 {
+  width: 100%;
+  height: 100%;
   position: relative;  
 }
 
