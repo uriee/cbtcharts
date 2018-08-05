@@ -22,6 +22,8 @@ import SelCharts from './SelCharts';
 import WavCharts from './WavCharts';
 import AqtCharts from './AqtCharts';
 import PurMain from './PurMain1.js'
+import QA from './QA.js'
+import Marquee from './Marquee.js'
 import {server} from './config.js';
 
 var Empty = React.createClass({
@@ -41,14 +43,14 @@ var Logo = React.createClass({
 var Reactive = React.createClass({
     render: function() {
 	if (!this.props.component) return <Empty/>
-    else return <this.props.component title={this.props.title} param={this.props.param}/>
+    else return <this.props.component title={this.props.title} param={this.props.param} script={this.props.script}/>
     }
 })
 
 var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2,
  'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
   'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2,  'SmtPie1':SmtPie1,'PurMain':PurMain,
-  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts}
+  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA}
 
 export default React.createClass({
 
@@ -104,13 +106,19 @@ export default React.createClass({
 
   render() {
     return (
-    	<div className='height90' > 
-        <Logo/> 
-				<Reactive component={slides[this.state.script[this.state.current].NAME]} 
-                  script={this.state.script} 
-                  title={this.state.script[this.state.current].TITLE} 
-                  param={this.state.script[this.state.current].PARAM} />  	
+      <div className='height100'>
+      	<div className='height90' > 
+          <Logo/> 
+  				<Reactive component={slides[this.state.script[this.state.current].NAME]} 
+                    script={this.props.route.script} 
+                    title={this.state.script[this.state.current].TITLE} 
+                    param={this.state.script[this.state.current].PARAM} />  	
+     
         </div>
+
+          <Marquee script={this.props.route.script} />
+
+      </div>
   
       )
   }
