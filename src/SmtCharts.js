@@ -3,28 +3,10 @@ import Smt1 from './Smt1.js';
 import Smt2 from './Smt2.js';
 
 /**
- * A class that plot acombunation of the SMT graphs
+ * A function that plots a combination of the SMT graphs
  */
-export default React.createClass({
-
-  getInitialState: function getInitialState() {
-    return {
-
-    };
-  },
-
-
-  componentDidMount: function componentDidMount() {
-
-  },
-
-
-  componentWillUnmount: function componentWillUnmount() {
-
-  },
-
-  render() {
-    console.log("debug:",this.props)
+export default () =>
+  {
     return (
         <div className='height90'>      
           <div className='left50'><Smt1  title='SMT Average Performance in 24hr' /></div>
@@ -33,5 +15,5 @@ export default React.createClass({
        )
   }
 
-});
+
 
