@@ -41,7 +41,7 @@ export default React.createClass({
         var containerStyle = {
            width: '60%',
        };
-        console.log("gg",this.props)
+
         return (
             <SemiCircle
                 progress={this.props.progress}

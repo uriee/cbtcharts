@@ -9,7 +9,6 @@ import Progress from './ProgressSemiCircle'
 export default React.createClass({
 
   render() {
-    console.log("BOX-",this.props)
     return (
       <div >
 		      <div className='left50'>

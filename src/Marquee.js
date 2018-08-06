@@ -7,7 +7,7 @@ export default React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-     message: 'SDFSDFSD;LF SDFSDF SDFS;LFKSD FSD;LFKSD FSD;LFKSD FSDSDF'
+     message: ''
     };
   },
 
@@ -20,7 +20,6 @@ export default React.createClass({
   loadMessages: function loadMessages() {
     const TH = this;
     this.serverRequest = axios.get(server + "messages/"+this.props.script).then(function (result) { 
-      console.log(result.data)
         TH.setState({
           message: result.data.reduce((old,x)=>{return (x.MESSAGE > '' ? old+'. '+x.MESSAGE : old)},'')
         });
@@ -30,7 +29,6 @@ export default React.createClass({
 
   render() {
     if (this.state.message > '') {
-    console.log("this.state.message:", this.state.message)  
     return   <Marquee text={this.state.message} script={this.props.script} loop={true} hoverToStop={true} />
     }
     else {

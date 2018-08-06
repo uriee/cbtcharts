@@ -1,20 +1,15 @@
 import React from 'react'
-import createReactClass from 'create-react-class';
 import MyTable from './MyTable.js';
 
-
-
-export default  createReactClass({
-  render() {
+export default  (props) => {
+  console.log('PROPS:',props)
+    const output = props.props.map(function(p,i,j) { return <MyTable  key={p.dlink} dlink={p.dlink} title={p.title} ukey={i} /> }) 
     return (
       <div dir='ltr' >
-          {this.props.props.map(function(p,i,j) {
-            return <MyTable  key={p.dlink} dlink={p.dlink} title={p.title} ukey={i} />
-            })
-          }
+          {output}
       </div>
       )
   }
-});
+
 
 

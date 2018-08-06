@@ -11,7 +11,8 @@ export default React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-     parts: []
+     parts: [],
+     output: [] 
     };
   },
 
@@ -19,18 +20,24 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    console.log("props:",this.props)
     this.serverRequest = axios.get(server + "getlastserialsparts/"+this.props.script).then(function (result) { 
-      console.log(result.data)
         TH.setState({
           parts: result.data.map(x=>{return {part: x.PART, partname: x.PARTNAME} })
-        });
-    });
-  },
-
-/*
-              {dlink: server + "proc/"+part ,title:'תהליך', type:'p'},              
-*/
+        })
+        const tables = result.data.map(x=> {
+          const tables = [{dlink: Tserver + "exttemp/"+x.PART ,title:'מסמכים זמניים'  + '-' + x.PARTNAME},
+                          {dlink: Tserver + "ext/"+x.PART+"/Y" , title :'מסמכי איכות' + '-' + x.PARTNAME}]            
+          return tables.map((table) => axios.get(table.dlink))
+          })
+          const promises = tables.reduce((o,x)=> [...o, ...x], []);
+          console.log("```````````````",promises)
+          Promise.all(promises).then(function (values) { 
+           const res = values.reduce((o,x)=> (o===1 || x.data[0] != undefined ? 1 : 0))
+           if (res === 0) TH.props.play()
+         })
+      })
+        
+    },
 
 
   render() {

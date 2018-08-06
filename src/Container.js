@@ -43,7 +43,7 @@ var Logo = React.createClass({
 var Reactive = React.createClass({
     render: function() {
 	if (!this.props.component) return <Empty/>
-    else return <this.props.component title={this.props.title} param={this.props.param} script={this.props.script}/>
+    else return <this.props.component title={this.props.title} param={this.props.param} script={this.props.script} play={this.props.play}/>
     }
 })
 
@@ -52,26 +52,43 @@ var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Pord
   'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2,  'SmtPie1':SmtPie1,'PurMain':PurMain,
   'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA}
 
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+/**
+ * Definition of the returned Container Class 
+ * @name  Container
+ */
 export default React.createClass({
 
   getInitialState: function getInitialState() {
     return {
       script: [empty],
-      current: 0
+      current: 0,
+      timeout : 0
     };
   },
 
 
+/**
+ * Rotate the current script views .
+ * @name  play
+ */
   play(){
+  clearTimeout( this.state.timeout )
 	var next = (this.state.current === this.state.script.length-1 ? 0 : this.state.current+1)
-	//console.log("inplay:",this.state.current,this.state.script)
+	console.log("inplay:",this.state.current,this.state.script)
 	this.setState({
-	  script: this.state.script,
+	  //script: this.state.script,
 	  current: next
 	});
-	setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);      
+
+  this.state.timeout = setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);      
   } ,
 
+/**
+ * Loads the requested script from the database.
+ * the function calls itself every 10 minutes in order to corospond to script change 
+ * @name  loadscript
+ */
   loadScript(){
     var TH = this;
     this.serverRequest = axios.get(server + "script/" + TH.props.route.script).then(function (result) {
@@ -111,6 +128,7 @@ export default React.createClass({
           <Logo/> 
   				<Reactive component={slides[this.state.script[this.state.current].NAME]} 
                     script={this.props.route.script} 
+                    play={this.play}
                     title={this.state.script[this.state.current].TITLE} 
                     param={this.state.script[this.state.current].PARAM} />  	
      
