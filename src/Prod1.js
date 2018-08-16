@@ -31,7 +31,6 @@ export default React.createClass({
 
 
   render() {
-    console.log(this.state)
     return (
         <div className='height90'>      
           <Myline data={this.state.linedata} title={this.props.title} config={{ X: "X",

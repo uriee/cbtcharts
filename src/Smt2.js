@@ -31,7 +31,6 @@ export default React.createClass({
 
 
   render() {
-    console.log(this.state)
     return (
         <div className='height90'>      
           <Mybar data={this.state.bardata} title={this.props.title} config={{ X: "X",

@@ -1,14 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Pdemand1 from './Pdemand1';
-import Pdemand2 from './Pdemand2';
-import Porder1 from './Porder1';
-import Porder2 from './Porder2';
-import Porder3 from './Porder3';
 import Serial1 from './Serials1';
 import Serial2 from './Serials2';
-import Smt1 from './Smt1';
-import Smt2 from './Smt2';
 import SmtPie1 from './SmtPie1';
 import Rmain from './Rmain';
 import Rmaout from './Rmaout';
@@ -34,22 +27,15 @@ var Empty = React.createClass({
 
 var empty = {NAME : Empty , INTERVAL : 1}
 
-var Logo = React.createClass({
-    render: function() {
-        return <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')} role="presentation" /> </div>
-    }
-});
+var Logo  = () => <div className="img-responsive"><img className="logo" src={require('../public/logo.jpg')} role="presentation" /> </div>
 
-var Reactive = React.createClass({
-    render: function() {
-	if (!this.props.component) return <Empty/>
-    else return <this.props.component title={this.props.title} param={this.props.param} script={this.props.script} play={this.props.play}/>
-    }
-})
+var Reactive  = (props) => {
+    if (!props.component) return <Empty/>
+    else return <props.component title={props.title} param={props.param} script={props.script} play={props.play}/>
+}
 
-var slides = {'Pdemand1':Pdemand1, 'Pdemand2':Pdemand2, 'Porder1':Porder1, 'Porder3':Porder3,'Porder2':Porder2,
- 'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
-  'Serial1':Serial1, 'Serial2':Serial2,'Smt1':Smt1,'Smt2':Smt2,  'SmtPie1':SmtPie1,'PurMain':PurMain,
+var slides = {'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
+  'Serial1':Serial1, 'Serial2':Serial2, 'SmtPie1':SmtPie1,'PurMain':PurMain,
   'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA}
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -66,6 +52,11 @@ export default React.createClass({
     };
   },
 
+/**
+ * A Global variable that holds the timer of the play function;
+ * @name  timeout
+ */
+
   timeout : 0,
 
 
@@ -76,7 +67,6 @@ export default React.createClass({
   play(){
   clearTimeout( this.timeout )
 	var next = (this.state.current === this.state.script.length-1 ? 0 : this.state.current+1)
-	console.log("inplay:",this.state.current,this.state.script)
 	this.setState({
 	  //script: this.state.script,
 	  current: next
@@ -118,8 +108,6 @@ export default React.createClass({
 
 
   componentWillUnmount: function componentWillUnmount() {
-    /*this.serverRequest.reject;*/
-    console.log("unmount:",this)
   },
 
   render() {

@@ -30,13 +30,8 @@ export default React.createClass({
     });
   },
 
-/*
-  componentWillUnmount: function componentWillUnmount() {
-    this.serverRequest.reject;
-  },
-*/
+
   render() {
-    console.log(this.state)
     return (
         <div className='height90'>      
           <Mybar data={this.state.bardata} title={this.props.title} config={{ X: "X",

@@ -27,7 +27,6 @@ export default React.createClass({
 
   componentDidMount: function componentDidMount() {
     const TH = this;
-    console.log("props:",this.props)
     this.serverRequest = axios.get(server + "graph/fly/"+this.props.param).then(function (result) { 
       var data  = result.data
       var lines = data.map(x => x.LINE).filter((item, i, ar) =>  ar.indexOf(item) === i )
@@ -54,10 +53,9 @@ export default React.createClass({
         {this.state.lines.map(row => {
 
           var data = this.state.data,
-          incoming = null, //data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
+          //incoming = null, data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
           run = data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
           past = data.filter(x => (x.LINE===row && x.STATUS==="3"))[0]
-          console.log("123:  ",incoming,run,past)
 
         return <div className='fly-row' key={row}> 
           <div className='fly-line'><h1>{row}</h1></div> 
@@ -75,37 +73,4 @@ export default React.createClass({
 });
 
 
-/*
 
-      <table>
-      <thead>
-        <tr>
-          <th>Line</th> 
-          <th><img   src={require('../public/lift1.png')}/> </th> 
-          <th><img   src={require('../public/fly1.png')}/> </th> 
-          <th><img  src={require('../public/land1.png')}/> </th> 
-        </tr>
-        </thead>
-        
-        <tbody>
-        {this.state.lines.map(row => {
-
-          var data = this.state.data,
-          incoming = data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
-          run = data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
-          past = data.filter(x => (x.LINE===row && x.STATUS==="3"))[0]
-          console.log("123:  ",incoming,run,past)
-
-        return 
-        <tr>
-          <td>{row}</td>
-          <td><SerialBox data={incoming}/></td> 
-          <td><SerialBox data={run}/></td>
-          <td><SerialBox data={past}/></td>       
-        </tr>          
-          }) 
-        }  
-        </tbody>      
-      </table>
-  
-*/

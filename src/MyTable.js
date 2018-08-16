@@ -3,8 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 export default (props) =>  {
-  console.log("props:",props)
-  return <TableComponent data={props.data} cols={Object.keys(props.data[0])} key={props.ukey} /> 
+  return (
+    <div>
+    <h3 className='center'>{props.title}</h3>
+    <TableComponent data={props.data} cols={Object.keys(props.data[0])} key={props.ukey} /> 
+    </div>
+    )
 }
 
 function createMarkup(html) {
@@ -54,7 +58,7 @@ const TableComponent = (props) => {
         <tr key={'tr' + ukey + i}>
           {dataColumns.map(function(column,j) {
             var content = row[column]
-            content = (column==='Details' || column==='Link'  ? content : hebflip(content))
+            content = (column==='Details' || column==='Link' ||   column==='Act Description'  ? content : hebflip(content))
             var markup = (column !== 'Part Name' ? <td  key={'td' + ukey + i + j}  dangerouslySetInnerHTML={createMarkup(content)}></td> : <td key={'td' + ukey + i + j}>{content}</td>)
             return markup })}
         </tr>); });
