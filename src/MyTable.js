@@ -1,46 +1,11 @@
 import React from 'react'
-import createReactClass from 'create-react-class';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-export default createReactClass({
-
-  getInitialState: function getInitialState() {
-    return {
-      data: [{Empty:'yes'}],
-      cols: ['Empty']
-    };
-  },
-
-  componentDidMount: function componentDidMount() {
-    var th = this;
-    console.log("++++++++++++",this.props.dlink)
-    this.serverRequest = axios.get(this.props.dlink).then(function (result) {
-      console.log("data:",result.data) ;
-      if (result.data && result.data[0] != null) {
-        th.setState({
-          data: result.data,
-          cols: Object.keys(result.data[0])
-        });
-      }
-    });
-    
-  },
-
-  render() {
-    return (
-
-      <div > 
-        {this.state.cols[0] !== 'Empty' && <h3 className='center'>{this.props.title}</h3>}
-        {this.state.cols[0] !== 'Empty' && <TableComponent data={this.state.data} cols={this.state.cols} ukey={this.props.ukey} /> }
-      </div>
-  
-      )
-  }
-
-});
-
+export default (props) =>  {
+  console.log("props:",props)
+  return <TableComponent data={props.data} cols={Object.keys(props.data[0])} key={props.ukey} /> 
+}
 
 function createMarkup(html) {
    return {__html: html};
@@ -69,16 +34,13 @@ const hebflip = string => {
   return ret + heb.reverse().join('');
 };
 
-const TableComponent =createReactClass({
-  render() {
-    console.log(this.props.cols,'-',this.props.data)
-    var ukey = this.props.ukey;
-    var dataColumns = this.props.cols;
-    var dataRows = this.props.data.map(function(obj){
+const TableComponent = (props) => {
+    var ukey = props.ukey;
+    var dataColumns = props.cols;
+    var dataRows = props.data.map(function(obj){
       obj.id = obj[dataColumns[0]];
       return obj;
     });
-
 
     var tableHeaders = (<thead className="Thead">
           <tr >
@@ -103,6 +65,6 @@ const TableComponent =createReactClass({
         {tableBody}
         </tbody>
       </table>)
-  }
-});
+ }  
+
 
