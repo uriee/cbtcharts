@@ -19,14 +19,12 @@ export default React.createClass({
 
   getTables: async function getTables(){
     const parts = await axios.get(server + "getlastserialsparts/"+this.props.script)
-    const tablesprop = parts.data.map(x => [{dlink: `${Tserver}exttemp/${x.PART}`, title:`מסמכים זמניים'  - ${x.PARTNAME}`},
-                                   {dlink: `${Tserver}ext/${x.PART}/Y` ,  title:`מסמכי איכות' - ${x.PARTNAME}`}]  ) .reduce((o,x)=> [...o,...x], [])
+    const tablesprop = parts.data.map(x => [{dlink: `${Tserver}exttemp/${x.PART}`, title:`מסמכים זמניים  - ${x.PARTNAME}`},{dlink: `${Tserver}ext/${x.PART}/Y` ,  title:`מסמכי איכות - ${x.PARTNAME}`}]).reduce((o,x)=> [...o,...x], [])
     const links = tablesprop.map(x => x.dlink)
     const titles = tablesprop.map(x => x.title) 
     const promises = links.map(x => axios.get(x))
     const all = await Promise.all(promises)
     const ret  = all.map((x,i) => {return (x.data[0] === undefined ? {table : 0} : {table: x.data, title: titles[i],key: links[i]} )} ).filter(x => x.table !== 0) 
-    console.log(ret)
     return ret
   },
 
