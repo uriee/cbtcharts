@@ -4,9 +4,7 @@ import ReactDOM from 'react-dom';
 
 const FPS = 70;
 const STEP = 1;
-const TIMEOUT = 1 / FPS * 1000;
-var width = document.getElementById('root').offsetWidth;
-
+const TIMEOUT = 1 / FPS * 2000;
 
 class Marquee extends Component {
   constructor(props) {
@@ -41,7 +39,7 @@ class Marquee extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-          if(this.props.text.length != nextProps.text.length)
+          if(this.props.text.length !== nextProps.text.length)
           {
               clearTimeout(this._marqueeTimer);
               this.setState({
@@ -145,7 +143,6 @@ class Marquee extends Component {
     
     if (container && node) {
       const containerWidth = container.offsetWidth;
-      const textWidth = node.offsetWidth;
       const overflowWidth = containerWidth ;
 
       if (overflowWidth !== this.state.overflowWidth) {

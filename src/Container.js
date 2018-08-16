@@ -63,9 +63,10 @@ export default React.createClass({
     return {
       script: [empty],
       current: 0,
-      timeout : 0
     };
   },
+
+  timeout : 0,
 
 
 /**
@@ -73,7 +74,7 @@ export default React.createClass({
  * @name  play
  */
   play(){
-  clearTimeout( this.state.timeout )
+  clearTimeout( this.timeout )
 	var next = (this.state.current === this.state.script.length-1 ? 0 : this.state.current+1)
 	console.log("inplay:",this.state.current,this.state.script)
 	this.setState({
@@ -81,7 +82,7 @@ export default React.createClass({
 	  current: next
 	});
 
-  this.state.timeout = setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);      
+  this.timeout = setTimeout(() => {this.play(); }, this.state.script[this.state.current].INTERVAL*1000);      
   } ,
 
 /**
