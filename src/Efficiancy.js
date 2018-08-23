@@ -19,13 +19,16 @@ export default React.createClass({
     };
   },
 
-
+/*
   componentDidMount: function componentDidMount() {
     const TH = this;
     const init = [["Label","Value"]]
     this.serverRequest = axios.get(server + "graph/eff/"+this.props.param).then(function (result) { 
-      var data  = init.concat(result.data.map(x=>[x.LINE, Math.round((x.WTIME / x.TTIME)*100)]))
-      var data0  = init.concat(result.data.map(x=>[x.LINE, 0]))
+      var d1 = init.concat(result.data.map(x=>[x.LINE, Math.round((x.WTIME / x.TTIME)*100)]))
+      var d2 = result.data.map(x=>[x.LINE+'-1H', Math.round((x.WTIME1H / x.TTIME)*100)])
+      var data = (TH.props.quant === '1h' ? d1.concat(d2) : d1)
+      var d0 = result.data.map(x=>[x.LINE, 0])
+      var data0  =init.concat((TH.props.quant === '1h' ? d0.concat(d0) : d0))
       TH.setState({
           data: data0,
         });
@@ -34,7 +37,27 @@ export default React.createClass({
         })
     });
   },
-
+*/
+  componentDidMount: function componentDidMount() {
+    const TH = this;
+    const init = [["Label","Value"]]
+    this.serverRequest = axios.get(server + "graph/eff/"+this.props.param).then(function (result) { 
+      var data  = init.concat(result.data.map(x=>{
+        var quant = (TH.props.quant === '1h' ? x.WTIME1H : x.WTIME)
+        var title = (TH.props.quant === '1h' ? x.LINE+'-1H' : x.LINE)
+        var time =  (TH.props.quant === '1h' ? 3600 : x.TTIME)
+        return [title, Math.round((quant / time)*100)]
+      }))
+     /* var data0  = init.concat(result.data.map(x=>[(TH.props.quant === '1h' ? x.LINE+'-1H' : x.LINE), 0]))
+      TH.setState({
+          data: data0,
+        });
+        */
+      TH.setState({
+          data: data,
+        })
+    });
+  },
 
   render() {
     return (

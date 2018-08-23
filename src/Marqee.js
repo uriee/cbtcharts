@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-const FPS = 70;
+const FPS = 30;
 const STEP = 1;
-const TIMEOUT = 1 / FPS * 2000;
+const TIMEOUT = 1 / FPS * 1000;
 
 class Marquee extends Component {
   constructor(props) {

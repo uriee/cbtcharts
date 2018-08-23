@@ -11,6 +11,7 @@ export default (props) => {
           <div className='left51'><Prod1  title='TH Average Performance in 24hr' type='S'/></div>
            <div className='left51'><Prod2 title={'TH Output in 24hr'} type='S' /></div>
           <div className='gau'><Efficiancy  title='' param='sel'/></div>
+          <div className='gau2'><Efficiancy  title='' param='sel' quant='1h' /></div>
         </div>
        )
   }

@@ -11,7 +11,7 @@ export default React.createClass({
   render() {
 
   var w = window.innerWidth/1.2;
-  var h = window.innerHeight/3;
+  var h = window.innerHeight/4.2;
 
 var data = this.props.data    
 var options = {
