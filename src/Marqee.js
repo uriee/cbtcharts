@@ -98,8 +98,8 @@ class Marquee extends Component {
 
   _startAnimation() {
     clearTimeout(this._marqueeTimer);
-    const isLeading = this.state.animatedWidth === 0;
-    const timeout = isLeading ? this.props.leading : TIMEOUT;
+    //const isLeading = this.state.animatedWidth === 0;
+    //const timeout = isLeading ? this.props.leading : TIMEOUT;
 
     const animate = () => {
       const {overflowWidth} = this.state;
@@ -134,7 +134,7 @@ class Marquee extends Component {
       }
     };
 
-    this._marqueeTimer = setTimeout(animate, timeout);
+    this._marqueeTimer = setTimeout(animate, TIMEOUT);
   }
 
   _measureText() {
