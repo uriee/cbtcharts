@@ -123,7 +123,7 @@ class Marquee extends Component {
           });
 
           this._marqueeTimer = setTimeout(animate, TIMEOUT);
-        }, this.props.trailing);
+        }, TIMEOUT);
       }
       else {
         this.setState({
