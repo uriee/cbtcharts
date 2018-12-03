@@ -9,6 +9,7 @@ import Rmaday from './Rmagraph';
 import Rmaweek from './Rmagraph2';
 import PorderPie1 from './PorderPie1';
 import FlyTable from './FlyTable';
+import PlanTable from './PlanTable';
 import Efficiancy from './Efficiancy';
 import SmtCharts from './SmtCharts';
 import SelCharts from './SelCharts';
@@ -35,7 +36,7 @@ var Reactive  = (props) => {
 }
 
 var slides = {'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
-  'Serial1':Serial1, 'Serial2':Serial2, 'SmtPie1':SmtPie1,'PurMain':PurMain,
+  'Serial1':Serial1, 'Serial2':Serial2, 'SmtPie1':SmtPie1,'PurMain':PurMain, 'PlanTable':PlanTable,
   'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA}
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
