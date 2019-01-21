@@ -15,6 +15,7 @@ import SmtCharts from './SmtCharts';
 import SelCharts from './SelCharts';
 import WavCharts from './WavCharts';
 import AqtCharts from './AqtCharts';
+import WeeklyProd from './WeeklyProd.js';
 import PurMain from './PurMain1.js'
 import QA from './QA.js'
 import Marquee from './Marquee.js'
@@ -37,7 +38,7 @@ var Reactive  = (props) => {
 
 var slides = {'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
   'Serial1':Serial1, 'Serial2':Serial2, 'SmtPie1':SmtPie1,'PurMain':PurMain, 'PlanTable':PlanTable,
-  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA}
+  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA , WeeklyProd:WeeklyProd}
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 /**

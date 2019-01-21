@@ -195,7 +195,7 @@ display: table-row;
 .fly-incoming{position: relative;width: 31%; float: left;   margin-bottom: 0.1%;}
 .fly-run{position: relative;width: 31%; float: left;   }
 .fly-past{ width: 31%; float: left;    }
-.fly-row{ height: 16%;   clear: both; margin-bottom: 1%; margin-top: 1%; }
+.fly-row{  clear: both; }
 .gauge {position: relative; width: 100%; float: left;  margin-bottom: 2%; }
 
 /*svg:first-child > g > text[text-anchor~=middle]{

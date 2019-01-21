@@ -46,7 +46,7 @@ export default React.createClass({
             var lineDisply = lineData.map(x=> (
               <div className='left15'>
                 <div className='left50'>
-                 <h4>{x.PARTNAME}</h4>
+                 <h5>{x.PARTNAME}</h5>
                  <div>{x.SERIALNAME}</div>
                  <div>{x.ACTNAME}</div>
                 </div>
@@ -55,7 +55,7 @@ export default React.createClass({
             return (
             <div className='fly-row' key={line}> 
               <div className='fly-line' >
-                <h1 className='left15'>{line}</h1>
+                <h2 className='left15'>{line}</h2>
               </div> 
               {lineDisply}       
               <hr/>

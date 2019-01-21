@@ -61,7 +61,7 @@ export default React.createClass({
 
         return <div className='fly-row' key={row}> 
           <div className='fly-line' >
-            <h1>{row}</h1>
+            <h2>{row}</h2>
             <span style={{color:delaystyle}}>{(incoming.DELAY> 0 ? delay : '')}</span> 
           </div> 
           <div className='fly-incoming'><SerialBox data={incoming}/></div> 
