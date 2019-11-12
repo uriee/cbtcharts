@@ -23,7 +23,11 @@ class App extends Component {
     <Route path="/sel" component={Container} script="sel"/>  
     <Route path="/aqt" component={Container} script="aqt"/> 
     <Route path="/wave" component={Container} script="wave"/>         
-    <Route path="/test" component={Container} script="test"/>                   
+    <Route path="/test" component={Container} script="test"/>  
+    <Route path="/mks" component={Container} script="mks"/>                       
+    <Route path="/phy" component={Container} script="phy"/>      
+    <Route path="/int" component={Container} script="int"/>  
+    <Route path="/acs" component={Container} script="acs"/>      
   </Router>
     )
   }

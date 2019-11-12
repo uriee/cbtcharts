@@ -56,15 +56,15 @@ export default React.createClass({
           incoming = data.filter(x => (x.LINE===row && x.STATUS==="1"))[0],
           run = data.filter(x => (x.LINE===row && x.STATUS==="2"))[0],
           past = data.filter(x => (x.LINE===row && x.STATUS==="3"))[0],
-          delay = parseInt(incoming.DELAY/60,0) +':'+ incoming.DELAY % 60,
-          delaystyle =(incoming.DELAY > 60 ? "#ff776F" : "#000000" ) 
+          delay = incoming && incoming.DELAY ? parseInt(incoming.DELAY/60,0) +':'+ incoming.DELAY % 60 : 0,
+          delaystyle = incoming ? (incoming.DELAY > 60 ? "#ff776F" : "#000000" ) : "#000000"
 
         return <div className='fly-row' key={row}> 
           <div className='fly-line' >
             <h2>{row}</h2>
-            <span style={{color:delaystyle}}>{(incoming.DELAY> 0 ? delay : '')}</span> 
+            <span style={{color:delaystyle}}>{(incoming && incoming.DELAY> 0 ? delay : '')}</span> 
           </div> 
-          <div className='fly-incoming'><SerialBox data={incoming}/></div> 
+          <div className='fly-incoming'>{incoming && <SerialBox data={incoming}/>}</div> 
           <div className='fly-run'><SerialBox data={run}/></div>
           <div className='fly-past'><SerialBox data={past}/></div>       
           <hr/>

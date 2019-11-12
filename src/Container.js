@@ -15,10 +15,14 @@ import SmtCharts from './SmtCharts';
 import SelCharts from './SelCharts';
 import WavCharts from './WavCharts';
 import AqtCharts from './AqtCharts';
+import MksCharts from './MksCharts';
+import IntCharts from './IntCharts';
+import PhyCharts from './PhyCharts';
+import AcsCharts from './AcsCharts';
 import WeeklyProd from './WeeklyProd.js';
 import PurMain from './PurMain1.js'
 import QA from './QA.js'
-import Marquee from './Marquee.js'
+/*import Marquee from './Marquee.js'*/
 import {server} from './config.js';
 
 var Empty = React.createClass({
@@ -38,7 +42,8 @@ var Reactive  = (props) => {
 
 var slides = {'Rmain':Rmain , 'Rmaout':Rmaout, 'Rmaday':Rmaday, 'Rmaweek':Rmaweek, 'PorderPie1':PorderPie1,
   'Serial1':Serial1, 'Serial2':Serial2, 'SmtPie1':SmtPie1,'PurMain':PurMain, 'PlanTable':PlanTable,
-  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts, AqtCharts:AqtCharts, QA:QA , WeeklyProd:WeeklyProd}
+  'FlyTable':FlyTable,  Efficiancy:Efficiancy, SmtCharts:SmtCharts, SelCharts:SelCharts, WavCharts:WavCharts,  MksCharts:MksCharts,
+   PhyCharts:PhyCharts, AcsCharts:AcsCharts, IntCharts:IntCharts, AqtCharts:AqtCharts, QA:QA , WeeklyProd:WeeklyProd}
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------*/
 /**
@@ -125,8 +130,6 @@ export default React.createClass({
      
         </div>
 
-          <Marquee script={this.props.route.script} />
-
       </div>
   
       )
@@ -134,3 +137,5 @@ export default React.createClass({
 
 });
 
+
+          /*<Marquee script={this.props.route.script} />*/

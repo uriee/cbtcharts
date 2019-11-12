@@ -16,7 +16,7 @@ export default React.createClass({
             <div>{this.props.data.SERIALNAME}</div>
             <div>{this.props.data.ACTNAME}</div>
 		      </div>
-          <div className='left50'>	 <Progress progress={this.props.data.PROGRESS/100}/> </div>
+          <div className='left50'>	 {this.props.data.PROGRESS ? <Progress progress={this.props.data.PROGRESS/100}/> : <span/>} </div>
       </div>
     )
   }
